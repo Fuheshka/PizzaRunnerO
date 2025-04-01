@@ -36,9 +36,9 @@ MonoBehaviour:
   restrictPitch: 0
   restrictYaw: 0
   restrictRoll: 0
-  usePitch: 0
-  useYaw: 0
-  useRoll: 0
+  usePitch: 1
+  useYaw: 1
+  useRoll: 1
   useColors: 0
   useSizes: 0
   minOrientation: {x: 0, y: 0, z: 0}
