@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using Dreamteck.Forever;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
     private bool isDraging = false;
     private Vector2 startTouch, swipeDelta;
+
+    [SerializeField] private float rayRange = 1.1f;
 
     private void Start()
     {
@@ -84,6 +87,20 @@ public class PlayerController : MonoBehaviour
 
             Reset();
         }
+
+        Vector3 direction = Vector3.forward;
+        Ray theRay = new Ray(transform.position, transform.TransformDirection(direction * rayRange));
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction * rayRange));
+
+        if (Physics.Raycast(theRay, out RaycastHit hit, rayRange))
+        {
+            if (hit.collider.tag == "Obstacle")
+            {
+                SceneManager.LoadScene(0);
+            }
+
+        }
+
     }
 
     private void Reset()

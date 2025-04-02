@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RandomPathGenerator
   m_EditorClassIdentifier: 
   pathType: 2
-  sampleRate: 10
-  controlPointsPerSegment: 5
+  sampleRate: 5
+  controlPointsPerSegment: 20
   normalInterpolation:
     serializedVersion: 2
     m_Curve: []
@@ -41,8 +41,8 @@ MonoBehaviour:
   useRoll: 1
   useColors: 0
   useSizes: 0
-  minOrientation: {x: 0, y: 0, z: 0}
-  maxOrientation: {x: 0, y: 0, z: 0}
+  minOrientation: {x: 0, y: -90, z: 0}
+  maxOrientation: {x: 0, y: 90, z: 0}
   minRandomStep: {x: 0, y: 0, z: 0}
   maxRandomStep: {x: 0, y: 0, z: 0}
   minTurnRate: {x: 0, y: 0, z: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   useStartRollTarget: 0
   minColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.9433962, g: 0.6007476, b: 0.6007476, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -78,12 +78,12 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: -1
+    m_ColorSpace: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   maxColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.8584906, g: 0.8367159, b: 0.4818886, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -108,12 +108,30 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: -1
+    m_ColorSpace: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   minSize:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
