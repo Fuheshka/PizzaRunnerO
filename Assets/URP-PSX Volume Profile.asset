@@ -132,67 +132,67 @@ MonoBehaviour:
   active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 10.7
   noiseWeight:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 101
   screenBendX:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 325
   screenBendY:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 359.1
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 1.37
+    m_Value: 1.06
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 1.87
+    m_Value: 1.72
   vignetteRounding:
     m_OverrideState: 1
-    m_Value: 13.15
+    m_Value: 3.55
   vignetteSmoothing:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.55
   scanlinesDensity:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 210.7
   scanlinesSpeed:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 210.7
   noiseAmount:
     m_OverrideState: 1
-    m_Value: 250
+    m_Value: 265.2
   chromaticRed:
     m_OverrideState: 1
-    m_Value: {x: 0.002, y: -0.002}
+    m_Value: {x: 0, y: 0}
   chromaticGreen:
     m_OverrideState: 1
-    m_Value: {x: -0.002, y: 0.002}
+    m_Value: {x: 0, y: 0}
   chromaticBlue:
     m_OverrideState: 1
     m_Value: {x: 0, y: 0}
   grilleOpacity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.83
   grilleCounterOpacity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: -0.99
   grilleResolution:
     m_OverrideState: 1
-    m_Value: 640
+    m_Value: 423.2
   grilleCounterResolution:
     m_OverrideState: 1
-    m_Value: 380
+    m_Value: 537.3
   grilleUvRotation:
     m_OverrideState: 1
-    m_Value: 90
+    m_Value: 129.3
   grilleBrightness:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 32.3
   grilleUvMidPoint:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 5.33
   grilleShift:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1}
@@ -554,13 +554,13 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 519
+    m_Value: 345.9
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 436.4
+    m_Value: 356.6
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 14.8
 --- !u!114 &-2630163360645659402
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -653,10 +653,10 @@ MonoBehaviour:
   active: 1
   fogDensity:
     m_OverrideState: 1
-    m_Value: 3.1
+    m_Value: 0.6691301
   fogDistance:
     m_OverrideState: 1
-    m_Value: 4.7
+    m_Value: 4.2
   fogColor:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 0}
@@ -665,22 +665,22 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0, b: 0, a: 0}
   fogNear:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1.6470814
   fogFar:
     m_OverrideState: 1
-    m_Value: 81.3
+    m_Value: 13.582913
   fogAltScale:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 8.534123
   fogThinning:
     m_OverrideState: 1
-    m_Value: 458
+    m_Value: 91.58417
   noiseScale:
     m_OverrideState: 1
-    m_Value: 843
+    m_Value: 240.08162
   noiseStrength:
     m_OverrideState: 1
-    m_Value: 0.029
+    m_Value: 0.15294878
 --- !u!114 &1008007414889149426
 MonoBehaviour:
   m_ObjectHideFlags: 3

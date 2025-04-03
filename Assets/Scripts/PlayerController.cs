@@ -12,15 +12,30 @@ public class PlayerController : MonoBehaviour
     private Vector2 startTouch, swipeDelta;
 
     [SerializeField] private float rayRange = 1.1f;
+    [SerializeField] private float jumpHeight = 5f; // Высота прыжка
+    [SerializeField] private float jumpDuration = 0.6f; // Длительность прыжка
+
+    private bool isRotating = false;
+    private float rotationTime = 0f;
+    private float rotationDuration = 0.5f;
+
+    private bool isJumping = false; // Флаг прыжка
+    private float jumpTime = 0f; // Текущее время прыжка
+    private Vector3 basePosition; // Базовая позиция, задаваемая LaneRunner
 
     private void Start()
     {
         runner = GetComponent<LaneRunner>();
+        if (runner == null)
+        {
+            Debug.LogError("LaneRunner component not found on this GameObject!");
+        }
     }
 
     private void Update()
     {
         tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
+
         #region ПК-версия
         if (Input.GetMouseButtonDown(0))
         {
@@ -52,42 +67,107 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-        //Просчитать дистанцию
+        // Просчитать дистанцию
         swipeDelta = Vector2.zero;
         if (isDraging)
         {
-            if (Input.touches.Length < 0)
+            if (Input.touches.Length > 0)
                 swipeDelta = Input.touches[0].position - startTouch;
             else if (Input.GetMouseButton(0))
                 swipeDelta = (Vector2)Input.mousePosition - startTouch;
         }
 
-        //Проверка на пройденность расстояния
+        // Проверка на пройденность расстояния
         if (swipeDelta.magnitude > 100)
         {
-            //Определение направления
             float x = swipeDelta.x;
             float y = swipeDelta.y;
             if (Mathf.Abs(x) > Mathf.Abs(y))
             {
-
                 if (x < 0)
-                    runner.lane--;
-                else
                     runner.lane++;
+                else
+                    runner.lane--;
             }
             else
             {
-
                 if (y < 0)
-                    swipeDown = true;
+                {
+                    isRotating = true;
+                    rotationTime = 0f;
+                }
                 else
+                {
                     swipeUp = true;
+                    if (!isJumping) // Начинаем прыжок, только если он ещё не идёт
+                    {
+                        isJumping = true;
+                        jumpTime = 0f;
+                        basePosition = transform.position; // Сохраняем текущую позицию как базовую
+                    }
+                }
             }
 
             Reset();
         }
 
+        // Обновляем базовую позицию каждый кадр (LaneRunner продолжает двигать объект)
+        if (isJumping)
+        {
+            basePosition = transform.position; // Получаем текущую позицию от LaneRunner
+        }
+
+
+        // Логика вращения
+        if (isRotating)
+        {
+            rotationTime += Time.deltaTime;
+            if (rotationTime < rotationDuration / 2f)
+            {
+                float t = rotationTime / (rotationDuration / 2f);
+                runner.motion.rotationOffset = Vector3.Lerp(Vector3.zero, new Vector3(-70, 0, 0), t);
+            }
+            else if (rotationTime < rotationDuration)
+            {
+                float t = (rotationTime - rotationDuration / 2f) / (rotationDuration / 2f);
+                runner.motion.rotationOffset = Vector3.Lerp(new Vector3(-70, 0, 0), Vector3.zero, t);
+            }
+            else
+            {
+                runner.motion.rotationOffset = Vector3.zero;
+                isRotating = false;
+                rotationTime = 0f;
+            }
+        }
+
+        // Логика прыжка
+        if (isJumping)
+        {
+            jumpTime += Time.deltaTime;
+            float heightOffset = 0f;
+
+            if (jumpTime < jumpDuration / 2f) // Подъём
+            {
+                float t = jumpTime / (jumpDuration / 2f);
+                heightOffset = Mathf.Lerp(0f, jumpHeight, t);
+            }
+            else if (jumpTime < jumpDuration) // Спуск
+            {
+                float t = (jumpTime - jumpDuration / 2f) / (jumpDuration / 2f);
+                heightOffset = Mathf.Lerp(jumpHeight, 0f, t);
+            }
+            else // Завершение прыжка
+            {
+                heightOffset = 0f;
+                isJumping = false;
+                jumpTime = 0f;
+            }
+
+            // Применяем смещение только по оси Y, не трогая движение LaneRunner
+            transform.position = basePosition + Vector3.up * heightOffset;
+        }
+
+        // Raycast
         Vector3 direction = Vector3.forward;
         Ray theRay = new Ray(transform.position, transform.TransformDirection(direction * rayRange));
         Debug.DrawRay(transform.position, transform.TransformDirection(direction * rayRange));
@@ -98,9 +178,7 @@ public class PlayerController : MonoBehaviour
             {
                 SceneManager.LoadScene(0);
             }
-
         }
-
     }
 
     private void Reset()

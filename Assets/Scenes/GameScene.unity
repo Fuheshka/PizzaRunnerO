@@ -347,13 +347,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.97206455, y: -0.07122697, z: 0.00438699, w: 0.22360244}
+  m_LocalPosition: {x: -0.01999998, y: 2.13, z: 2.889667}
+  m_LocalScale: {x: 0.3333333, y: 0.3333333, z: 0.33333334}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_Father: {fileID: 1767440883}
+  m_LocalEulerAnglesHint: {x: 25.807, y: -178.515, z: -171.278}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
   _startLevel: 0
   _sharedPathGenerator: {fileID: 11400000, guid: 43db5ba71f32fe7439339f7816abfd50, type: 2}
   levels: []
-  usePathGeneratorInstance: 0
+  usePathGeneratorInstance: 1
 --- !u!4 &1324964770
 Transform:
   m_ObjectHideFlags: 0
@@ -864,6 +864,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
+  - {fileID: 410087041}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1767440884
@@ -999,6 +1000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayRange: 1.1
+  jumpHeight: 5
+  jumpDuration: 0.6
 --- !u!1 &1860618747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayRange: 1.1
+  jumpHeight: 5
+  jumpDuration: 0.6
 --- !u!1 &2107608139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,27 +1436,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
   isEnabled: 1
-  scanlinesWeight: 0.2
-  noiseWeight: 0.2
-  screenBendX: 3
-  screenBendY: 3
-  vignetteAmount: 1.37
-  vignetteSize: 1.87
-  vignetteRounding: 13.15
-  vignetteSmoothing: 0.2
-  scanLinesDensity: 200
-  scanLinesSpeed: -10
-  noiseAmount: 250
-  chromaticRed: {x: 0.002, y: -0.002}
-  chromaticGreen: {x: -0.002, y: 0.002}
+  scanlinesWeight: 7.51
+  noiseWeight: 66.3
+  screenBendX: 295.2
+  screenBendY: 301.3
+  vignetteAmount: 0.91
+  vignetteSize: 1.72
+  vignetteRounding: 3.55
+  vignetteSmoothing: 0.55
+  scanLinesDensity: 210.7
+  scanLinesSpeed: -8.78
+  noiseAmount: 265.2
+  chromaticRed: {x: 0, y: 0}
+  chromaticGreen: {x: 0, y: 0}
   chromaticBlue: {x: 0, y: 0}
-  grilleOpacity: 0.2
-  grilleCounterOpacity: -28.17
-  grilleResolution: 640
-  grilleCounterResolution: 380
-  grilleBrightness: 16
-  grilleUvRotation: 90
-  grilleUvMidPoint: 0.5
+  grilleOpacity: 0.83
+  grilleCounterOpacity: -0.99
+  grilleResolution: 423.2
+  grilleCounterResolution: 537.3
+  grilleBrightness: 32.3
+  grilleUvRotation: 129.3
+  grilleUvMidPoint: 5.33
   grilleShift: {x: 1, y: 1, z: 1}
 --- !u!114 &2107608142
 MonoBehaviour:
@@ -1485,9 +1490,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
   isEnabled: 1
-  widthPixelation: 519
-  heightPixelation: 436.4
-  colorPrecision: 16
+  widthPixelation: 563.5
+  heightPixelation: 521.5
+  colorPrecision: 16.12
 --- !u!114 &2107608144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1502,14 +1507,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
   isEnabled: 1
-  fogDensity: 1.5
-  fogDistance: 4.7
-  fogNear: 0
-  fogFar: 81.3
-  fogAltScale: 10
-  fogThinning: 458
-  noiseScale: 843
-  noiseStrength: 0.029
+  fogDensity: 0.6691301
+  fogDistance: 4.2
+  fogNear: 1.6470814
+  fogFar: 13.582913
+  fogAltScale: 8.534123
+  fogThinning: 91.58417
+  noiseScale: 240.08162
+  noiseStrength: 0.15294878
   fogColor: {r: 0, g: 0, b: 0, a: 0}
   ambientColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &2107608145
@@ -1531,7 +1536,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1324964770}
   - {fileID: 2075941140}
