@@ -132,19 +132,19 @@ MonoBehaviour:
   active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 10.7
+    m_Value: 7.51
   noiseWeight:
     m_OverrideState: 1
-    m_Value: 101
+    m_Value: 66.3
   screenBendX:
     m_OverrideState: 1
-    m_Value: 325
+    m_Value: 295.2
   screenBendY:
     m_OverrideState: 1
-    m_Value: 359.1
+    m_Value: 301.3
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 1.06
+    m_Value: 0.91
   vignetteSize:
     m_OverrideState: 1
     m_Value: 1.72
@@ -554,13 +554,13 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 345.9
+    m_Value: 563.5
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 356.6
+    m_Value: 521.5
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 14.8
+    m_Value: 16.12
 --- !u!114 &-2630163360645659402
 MonoBehaviour:
   m_ObjectHideFlags: 3
