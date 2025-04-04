@@ -394,45 +394,14 @@ MonoBehaviour:
     spriteRenderer: {fileID: 0}
     colliders: []
     _isRoot: 0
-  - transform: {fileID: 0}
-    localRotation: {x: -0.000000021855703, y: 0, z: 0, w: 1}
-    extrudedMesh: {fileID: 0}
-    extrusionSpriteVertices: []
-    extrusionSpriteUVs: []
-    extrusionSpriteRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    extrudedCollisionMesh: {fileID: 0}
-    _extrusionSettings:
-      meshColliderHandling: 0
-      boundsInclusion: -1
-      indexing: 0
-      applyRotation: 1
-      keepUpright: 0
-      upVector: {x: 0, y: 1, z: 0}
-      applyScale: 0
-      bendMesh: 0
-      bendSprite: 0
-      bendPolygonCollider: 0
-      applyMeshColors: 0
-    _settingsComponent: {fileID: 0}
-    overrideSettingsComponent: 0
-    meshFilter: {fileID: 0}
-    meshCollider: {fileID: 0}
-    spriteRenderer: {fileID: 0}
-    colliders: []
-    _isRoot: 0
   bounds:
-    center: {x: -6.25, y: 0.3692485, z: -1.25}
-    extents: {x: 6.25, y: 2.8692484, z: 1.25}
-    max: {x: 0, y: 3.238497, z: 0.0000001092785}
+    center: {x: -6.25, y: 0.29533434, z: -1.25}
+    extents: {x: 6.25, y: 2.7953343, z: 1.25}
+    max: {x: 0, y: 3.0906687, z: 0.0000001092785}
     min: {x: -12.5, y: -2.5, z: -2.5}
-    size: {x: 12.5, y: 5.738497, z: 2.5}
+    size: {x: 12.5, y: 5.5906687, z: 2.5}
   builders: []
-  unpacked: 1
+  unpacked: 0
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1

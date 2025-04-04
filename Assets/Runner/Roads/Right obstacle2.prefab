@@ -230,7 +230,7 @@ MonoBehaviour:
     min: {x: -12.5, y: -2.5, z: -2.5}
     size: {x: 12.5, y: 3.98721, z: 2.5}
   builders: []
-  unpacked: 0
+  unpacked: 1
   alwaysDraw: 0
   drawGeneratedSpline: 1
   drawGeneratedSamples: 1
@@ -238,7 +238,7 @@ MonoBehaviour:
   drawEntranceAndExit: 1
   drawBounds: 1
   drawCustomPaths: 1
-  editorChildCount: 2
+  editorChildCount: 1
 --- !u!1 &8858556792449960432
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 8858556792449960432}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000021153964, y: -0.2513713, z: 0.000000005493888, w: 0.9678908}
-  m_LocalPosition: {x: -2.59, y: -0, z: -1.2192533}
+  m_LocalPosition: {x: -2.74, y: 0, z: -1.29}
   m_LocalScale: {x: 2.781515, y: 2.781515, z: 2.781515}
   m_ConstrainProportionsScale: 0
   m_Children: []
