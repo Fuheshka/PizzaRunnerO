@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping = false; // Флаг прыжка
     private float jumpTime = 0f; // Текущее время прыжка
-    private Vector3 basePosition; // Базовая позиция, задаваемая LaneRunner
+
+    [SerializeField] private GameObject deathScreen; // Ссылка на DeathScreen
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
         if (runner == null)
         {
             Debug.LogError("LaneRunner component not found on this GameObject!");
+        }
+
+        if (deathScreen != null)
+        {
+            deathScreen.SetActive(false);
         }
     }
 
@@ -103,18 +109,11 @@ public class PlayerController : MonoBehaviour
                     {
                         isJumping = true;
                         jumpTime = 0f;
-                        basePosition = transform.position; // Сохраняем текущую позицию как базовую
                     }
                 }
             }
 
             Reset();
-        }
-
-        // Обновляем базовую позицию каждый кадр (LaneRunner продолжает двигать объект)
-        if (isJumping)
-        {
-            basePosition = transform.position; // Получаем текущую позицию от LaneRunner
         }
 
 
@@ -140,7 +139,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Логика прыжка
+        // Логика прыжка с использованием runner
         if (isJumping)
         {
             jumpTime += Time.deltaTime;
@@ -163,22 +162,27 @@ public class PlayerController : MonoBehaviour
                 jumpTime = 0f;
             }
 
-            // Применяем смещение только по оси Y, не трогая движение LaneRunner
-            transform.position = basePosition + Vector3.up * heightOffset;
+            // Применяем смещение через runner.motion.offset
+            runner.motion.offset = new Vector3(-6f, heightOffset + 1, 0f);
         }
 
         // Raycast
         Vector3 direction = Vector3.forward;
         Ray theRay = new Ray(transform.position, transform.TransformDirection(direction * rayRange));
-        Debug.DrawRay(transform.position, transform.TransformDirection(direction * rayRange));
 
         if (Physics.Raycast(theRay, out RaycastHit hit, rayRange))
         {
             if (hit.collider.tag == "Obstacle")
             {
-                SceneManager.LoadScene(0);
+                deathScreen.SetActive(true);
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "obstacle")
+            SceneManager.LoadScene(0);
     }
 
     private void Reset()
