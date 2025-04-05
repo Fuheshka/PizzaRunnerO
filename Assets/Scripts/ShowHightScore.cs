@@ -9,13 +9,6 @@ public class HighScoreDisplay : MonoBehaviour
     {
         highScoreText = GetComponent<TextMeshProUGUI>();
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
-        if (highScoreText != null)
-        {
-            highScoreText.text = "Рекорд: " + highScore.ToString();
-        }
-        else
-        {
-            Debug.LogWarning("HighScoreText не назначен в инспекторе!");
-        }
+        highScoreText.text = "Рекорд: " + highScore.ToString();
     }
 }

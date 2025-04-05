@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI; // Для работы с UI (кнопками)
 
+
 public class CanvasSwitcher : MonoBehaviour
 {
-    [SerializeField] private Canvas mainMenuCanvas; // Ссылка на MainMenuCanvas
-    [SerializeField] private Canvas settingsCanvas; // Ссылка на SettingsCanvas
+    [SerializeField] private GameObject mainMenuCanvas; // Ссылка на MainMenuCanvas
+    [SerializeField] private GameObject settingsCanvas; // Ссылка на SettingsCanvas
 
     [SerializeField] private Button toSettingsButton; // Кнопка для перехода в настройки
     [SerializeField] private Button backToMainMenuButton; // Кнопка для возврата в главное меню
@@ -12,8 +13,8 @@ public class CanvasSwitcher : MonoBehaviour
     void Start()
     {
         // Устанавливаем начальное состояние
-        if (mainMenuCanvas != null) mainMenuCanvas.enabled = true;
-        if (settingsCanvas != null) settingsCanvas.enabled = false;
+        if (mainMenuCanvas != null) mainMenuCanvas.SetActive(true);
+        if (settingsCanvas != null) settingsCanvas.SetActive(false);
 
         // Привязываем методы к кнопкам
         if (toSettingsButton != null)
@@ -32,14 +33,14 @@ public class CanvasSwitcher : MonoBehaviour
     // Метод для показа настроек
     private void ShowSettings()
     {
-        if (mainMenuCanvas != null) mainMenuCanvas.enabled = false;
-        if (settingsCanvas != null) settingsCanvas.enabled = true;
+        if (mainMenuCanvas != null) mainMenuCanvas.SetActive(false);
+        if (settingsCanvas != null) settingsCanvas.SetActive(true);
     }
 
     // Метод для возврата в главное меню
     private void ShowMainMenu()
     {
-        if (mainMenuCanvas != null) mainMenuCanvas.enabled = true;
-        if (settingsCanvas != null) settingsCanvas.enabled = false;
+        if (mainMenuCanvas != null) mainMenuCanvas.SetActive(true);
+        if (settingsCanvas != null) settingsCanvas.SetActive(false);
     }
 }

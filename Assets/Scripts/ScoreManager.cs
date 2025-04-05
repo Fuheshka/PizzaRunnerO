@@ -22,6 +22,7 @@ public class ScoreCounter : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore", 0); // 0 Ч значение по умолчанию
         UpdateHighScoreText();
         UpdateScoreText();
+        //ResetHighScore();
     }
 
     void Update()
