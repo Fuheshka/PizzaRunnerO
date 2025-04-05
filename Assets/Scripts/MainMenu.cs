@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     // Метод для перезапуска игры
     private void StartGame()
     {
-        SceneManager.LoadScene(0); // Загружаем основную сцену
+        SceneManager.LoadScene("GameScene"); // Загружаем основную сцену
     }
 
 

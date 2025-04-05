@@ -1,0 +1,10 @@
+# ninja log v5
+36	4299	7655599045252062	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	7ad1d30ab727dd50
+28	4492	7655599047359870	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	3a0386589f1b250c
+7	4528	7655599047520380	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a39f55c46d80147
+51	4533	7655599047690206	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	bd85f48b4de82d27
+42	4730	7655599049680093	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	faf5216c8be7400a
+15	4758	7655599049977054	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	3542039c57f6ccf7
+22	5208	7655599054534344	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	a6a8e78fd9d67257
+1	5657	7655599058834873	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c668f2737b95b5c
+5658	5951	7655599061769403	C:/Users/fuheshka/Documents/GitHub/PizzaRunner/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6m3n6s1y/obj/arm64-v8a/libgame.so	d644663b24b3f0f3

@@ -40,13 +40,13 @@ public class DeathScreenManager : MonoBehaviour
     private void RestartGame()
     {
         Time.timeScale = 1f; // Снимаем паузу
-        SceneManager.LoadScene(0); // Загружаем основную сцену
+        SceneManager.LoadScene("GameScene"); // Загружаем основную сцену
     }
 
     // Метод для перехода в меню
     private void GoToMenu()
     {
         Time.timeScale = 1f; // Снимаем паузу
-        SceneManager.LoadScene(1); // Загружаем сцену меню
+        SceneManager.LoadScene("MainMenu"); // Загружаем сцену меню
     }
 }

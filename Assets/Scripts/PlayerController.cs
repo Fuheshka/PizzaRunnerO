@@ -24,9 +24,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject deathScreen; // Ссылка на DeathScreen
 
+    private Vector3 lastPosition; // Предыдущая позиция объекта
+    private ScoreCounter scoreCounter; // Ссылка на ScoreCounter
+    private bool hasStartedMoving = false; // Флаг начала движения
+
     private void Start()
     {
         runner = GetComponent<LaneRunner>();
+
+        scoreCounter = FindFirstObjectByType<ScoreCounter>();
+        lastPosition = transform.position; // Сохраняем начальную позицию
 
         if (deathScreen != null)
         {
@@ -37,6 +44,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
+
+        // Проверяем, изменилась ли позиция
+        if (transform.position != lastPosition && !hasStartedMoving)
+        {
+            scoreCounter.StartScoring(); // Начинаем подсчёт очков
+            hasStartedMoving = true; // Устанавливаем флаг, чтобы не вызывать повторно
+        }
+
+        // Обновляем последнюю позицию
+        lastPosition = transform.position;
 
         #region ПК-версия
         if (Input.GetMouseButtonDown(0))
@@ -112,6 +129,7 @@ public class PlayerController : MonoBehaviour
             Reset();
         }
 
+
         // Логика вращения и падения пиццы
         if (isRotating)
         {
@@ -173,6 +191,8 @@ public class PlayerController : MonoBehaviour
                 deathScreen.SetActive(true);
             }
         }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)

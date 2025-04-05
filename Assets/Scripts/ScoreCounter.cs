@@ -7,7 +7,7 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText; // Текст для лучшего счёта
     private float score;    // Текущее количество очков
     private int highScore;  // Лучший счёт
-    private bool isRunning; // Флаг активности игры
+    private bool isRunning; // Флаг активности подсчёта очков
 
     [SerializeField] private float scorePerSecond = 10f; // Очков за секунду
 
@@ -16,13 +16,12 @@ public class ScoreCounter : MonoBehaviour
         // Получаем компонент TextMeshProUGUI с того объекта, на котором скрипт
         scoreText = GetComponent<TextMeshProUGUI>();
         score = 0f;
-        isRunning = true;
+        isRunning = false; // Изначально подсчёт отключён
 
         // Загружаем лучший счёт из PlayerPrefs
         highScore = PlayerPrefs.GetInt("HighScore", 0); // 0 — значение по умолчанию
         UpdateHighScoreText();
         UpdateScoreText();
-        //ResetHighScore();
     }
 
     void Update()
@@ -45,6 +44,12 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
+    // Метод для начала подсчёта очков (вызывается при старте движения)
+    public void StartScoring()
+    {
+        isRunning = true;
+    }
+
     // Метод для обновления отображаемого текста текущего счёта
     private void UpdateScoreText()
     {
@@ -54,9 +59,7 @@ public class ScoreCounter : MonoBehaviour
     // Метод для обновления отображаемого текста лучшего счёта
     private void UpdateHighScoreText()
     {
-
         highScoreText.text = "Рекорд: " + highScore.ToString();
-
     }
 
     // Метод для остановки подсчёта (вызывается при проигрыше)
@@ -75,7 +78,7 @@ public class ScoreCounter : MonoBehaviour
     public void ResetScore()
     {
         score = 0f;
-        isRunning = true;
+        isRunning = false; // После сброса подсчёт не начинается автоматически
         UpdateScoreText();
     }
 
