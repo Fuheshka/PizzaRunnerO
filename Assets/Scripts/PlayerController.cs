@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpDuration = 0.6f; // Длительность прыжка
 
     private bool isRotating = false;
-    private float rotationTime = 0f;
-    private float rotationDuration = 0.5f;
+    private float rotationTime = 0.9f;
+    private float rotationDuration = 0.8f;
 
     private bool isJumping = false; // Флаг прыжка
     private float jumpTime = 0f; // Текущее время прыжка
@@ -112,20 +112,19 @@ public class PlayerController : MonoBehaviour
             Reset();
         }
 
-
-        // Логика вращения
+        // Логика вращения и падения пиццы
         if (isRotating)
         {
             rotationTime += Time.deltaTime;
             if (rotationTime < rotationDuration / 2f)
             {
                 float t = rotationTime / (rotationDuration / 2f);
-                runner.motion.rotationOffset = Vector3.Lerp(Vector3.zero, new Vector3(45, 0, 0), t);
+                runner.motion.rotationOffset = Vector3.Lerp(Vector3.zero, new Vector3(-85, 0, 0), t);
             }
             else if (rotationTime < rotationDuration)
             {
                 float t = (rotationTime - rotationDuration / 2f) / (rotationDuration / 2f);
-                runner.motion.rotationOffset = Vector3.Lerp(new Vector3(45, 0, 0), Vector3.zero, t);
+                runner.motion.rotationOffset = Vector3.Lerp(new Vector3(-85, 0, 0), Vector3.zero, t);
             }
             else
             {
@@ -134,6 +133,7 @@ public class PlayerController : MonoBehaviour
                 rotationTime = 0f;
             }
         }
+
 
         // Логика прыжка с использованием runner
         if (isJumping)

@@ -6,6 +6,7 @@ public class DeathScreenManager : MonoBehaviour
 {
     [SerializeField] private Button Restart; // Кнопка "Перезапуск"
     [SerializeField] private Button Exit;    // Кнопка "Меню"
+    [SerializeField] private Button Pause;    // Кнопка "Меню"
 
     private void Awake()
     {
@@ -18,6 +19,15 @@ public class DeathScreenManager : MonoBehaviour
     {
         // Останавливаем игру (ставим на паузу) при активации DeathScreen
         Time.timeScale = 0f;
+        // Скрываем кнопку паузы
+        if (Pause != null)
+        {
+            Pause.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Pause button is not assigned!");
+        }
     }
 
     private void OnDisable()
