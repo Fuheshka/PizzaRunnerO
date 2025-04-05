@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         runner = GetComponent<LaneRunner>();
-        if (runner == null)
-        {
-            Debug.LogError("LaneRunner component not found on this GameObject!");
-        }
 
         if (deathScreen != null)
         {
