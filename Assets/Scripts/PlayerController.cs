@@ -120,12 +120,12 @@ public class PlayerController : MonoBehaviour
             if (rotationTime < rotationDuration / 2f)
             {
                 float t = rotationTime / (rotationDuration / 2f);
-                runner.motion.rotationOffset = Vector3.Lerp(Vector3.zero, new Vector3(-70, 0, 0), t);
+                runner.motion.rotationOffset = Vector3.Lerp(Vector3.zero, new Vector3(45, 0, 0), t);
             }
             else if (rotationTime < rotationDuration)
             {
                 float t = (rotationTime - rotationDuration / 2f) / (rotationDuration / 2f);
-                runner.motion.rotationOffset = Vector3.Lerp(new Vector3(-70, 0, 0), Vector3.zero, t);
+                runner.motion.rotationOffset = Vector3.Lerp(new Vector3(45, 0, 0), Vector3.zero, t);
             }
             else
             {
