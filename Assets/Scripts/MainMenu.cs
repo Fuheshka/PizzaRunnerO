@@ -1,97 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class SpriteMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    [Header("2D Buttons")]
-    [SerializeField] private SpriteRenderer startButton;
-    [SerializeField] private SpriteRenderer settingsButton;
-    
-    [Header("Button Sprites")]
-    [SerializeField] private Sprite normalSprite;
-    [SerializeField] private Sprite hoverSprite;
-    
-    [Header("Camera Settings")]
-    [SerializeField] private Camera menuCamera;
-    [SerializeField] private float orthoSize = 5f;
-    
-    private void Start()
+    [SerializeField] private Button Start; // Кнопка "Старт"
+    [SerializeField] private Button Settings;    // Кнопка "Настройки"
+
+    private void Awake()
     {
-        SetupCamera();
+        // Привяжем методы к кнопкам
+        Start.onClick.AddListener(StartGame);
+        Settings.onClick.AddListener(GoToSettings);
     }
-    
-    private void Update()
-    {
-        HandleButtonInteraction();
-    }
-    
-    private void SetupCamera()
-    {
-        if (menuCamera != null)
-        {
-            // Р”РµР»Р°РµРј РєР°РјРµСЂСѓ РѕСЂС‚РѕРіСЂР°С„РёС‡РµСЃРєРѕР№ РґР»СЏ 2D
-            menuCamera.orthographic = true;
-            menuCamera.orthographicSize = orthoSize;
-            
-            // Р¦РµРЅС‚СЂРёСЂСѓРµРј РєР°РјРµСЂСѓ РЅР° РјРµРЅСЋ
-            menuCamera.transform.position = new Vector3(
-                transform.position.x,
-                transform.position.y,
-                menuCamera.transform.position.z
-            );
-        }
-    }
-    
-    private void HandleButtonInteraction()
-    {
-        // Р”Р»СЏ РјРѕР±РёР»СЊРЅС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІ
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            CheckTouch(Input.GetTouch(0).position);
-        }
-        // Р”Р»СЏ СЂРµРґР°РєС‚РѕСЂР°/С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ
-        else if (Input.GetMouseButtonDown(0))
-        {
-            CheckTouch(Input.mousePosition);
-        }
-    }
-    
-    private void CheckTouch(Vector2 screenPosition)
-    {
-        Vector2 worldPoint = menuCamera.ScreenToWorldPoint(screenPosition);
-        Collider2D hit = Physics2D.OverlapPoint(worldPoint);
-        
-        if (hit != null)
-        {
-            if (hit.gameObject == startButton.gameObject)
-            {
-                StartCoroutine(ButtonPressEffect(startButton));
-                StartGame();
-            }
-            else if (hit.gameObject == settingsButton.gameObject)
-            {
-                StartCoroutine(ButtonPressEffect(settingsButton));
-                OpenSettings();
-            }
-        }
-    }
-    
-    private System.Collections.IEnumerator ButtonPressEffect(SpriteRenderer button)
-    {
-        button.sprite = hoverSprite;
-        yield return new WaitForSeconds(0.1f);
-        button.sprite = normalSprite;
-    }
-    
+
+    // Метод для перезапуска игры
     private void StartGame()
     {
-        Debug.Log("Starting game...");
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(0); // Загружаем основную сцену
     }
-    
-    private void OpenSettings()
+
+    // Метод для перехода в меню
+    private void GoToSettings()
     {
-        Debug.Log("Opening settings...");
-        // Р—РґРµСЃСЊ РјРѕР¶РЅРѕ Р°РєС‚РёРІРёСЂРѕРІР°С‚СЊ РїР°РЅРµР»СЊ РЅР°СЃС‚СЂРѕРµРє
+        SceneManager.LoadScene(1); // Загружаем сцену меню
     }
 }
